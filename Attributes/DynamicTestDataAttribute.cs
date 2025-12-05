@@ -70,14 +70,14 @@ public class DynamicTestDataAttribute : Attribute, ITestDataSource
     }
 
     /// <inheritdoc />
-    public IEnumerable<object?[]> GetData(MethodInfo methodInfo)
-    => _dynamicDataAttribute.GetData(methodInfo);
+    public IEnumerable<object?[]> GetData(MethodInfo testMethod)
+    => _dynamicDataAttribute.GetData(testMethod);
 
     /// <inheritdoc />
     public string? GetDisplayName(
-        MethodInfo methodInfo,
+        MethodInfo testMethod,
         object?[]? data)
     => TestDataFactory.GetDisplayName(
-        methodInfo.Name,
+        testMethod.Name,
         data);
 }
